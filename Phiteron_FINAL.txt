@@ -1,0 +1,127 @@
+TASK01
+SORTED AND UNIQUUE
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int T; 
+    cin >> T;
+    while (T--) {
+        int N; 
+        cin >> N;
+        vector<int> arr(N);
+        for (int i = 0; i < N; i++) {
+            cin >> arr[i];
+        }
+        set<int> unique_sorted(arr.begin(), arr.end());
+        for(auto it = unique_sorted.begin(); it != unique_sorted.end(); ++it){
+            if(it != unique_sorted.begin()){ 
+                cout << " ";
+            }
+            cout << *it;
+        }
+        cout << endl;
+    }
+    return 0;
+}
+TASK02
+PAIRS SORTING
+#include <bits/stdc++.h>
+using namespace std;
+bool customComparator(const pair<string, int>& a, const pair<string, int>& b){
+    if(a.first == b.first){
+        return a.second > b.second; 
+    }
+    return a.first < b.first; 
+}
+int main(){
+    int N; 
+   cin >> N;
+    vector<pair<string, int>> A(N);
+    for(int i = 0; i < N; i++){
+        cin >> A[i].first >> A[i].second;
+    }
+    sort(A.begin(), A.end(), customComparator);
+    for(auto it = A.begin(); it != A.end(); ++it){
+    cout << it->first << " " << it->second << endl;
+      }
+    return 0;
+}
+TASK03
+COUNT ME
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int T; 
+    cin >> T;
+    cin.ignore(); 
+    while (T--){
+        string S;
+        getline(cin, S); 
+        unordered_map<string, int> word_count; 
+        stringstream ss(S);
+       string word;
+        string most_frequent_word;
+        int max_count = 0;
+        while(ss >> word){
+            word_count[word]++; 
+            if(word_count[word] > max_count ||(word_count[word] == max_count && most_frequent_word.empty())){
+                most_frequent_word = word;
+                max_count = word_count[word];
+            }
+        }
+        cout << most_frequent_word << " " << max_count << endl;
+    }
+
+    return 0;
+}
+TASK04
+GIVE CURRENT MIN
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int N;
+    cin >> N; 
+    multiset<int> ms;
+    for (int i=0;i<N;i++){
+        int x;
+        cin >> x;
+        ms.insert(x);
+    }
+    int Q;
+    cin >> Q;
+    while (Q--){
+        int command;
+        cin >> command;
+        if(command == 0){
+            int X;
+            cin >> X;
+            ms.insert(X);
+            cout << *ms.begin() << endl; 
+        } 
+        else if(command == 1){
+            if(ms.empty()){
+                cout << "Empty" << endl;
+            } 
+            else{
+                cout << *ms.begin() << endl; 
+            }
+        } 
+        else if(command == 2){
+            if(ms.empty()){
+                cout << "Empty" << endl;
+            } 
+            else{
+                ms.erase(ms.begin()); 
+                if(ms.empty()){
+                    cout << "Empty" << endl;
+                } 
+                else{
+                    cout << *ms.begin() << endl; 
+                }
+            }
+        }
+    }
+    return 0;
+}
+TASK05
+
