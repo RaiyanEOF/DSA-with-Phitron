@@ -1,1 +1,136 @@
+Linear_Complexity_O_n.cpp
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin >> n;
 
+    for(int i=1;i<=n;i+=2)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
+    for(int i=1;i<=n;i++)
+    {
+        cout << i << " ";
+    }
+
+    return 0;
+}
+Linearithmic_complexity_O_NlogN.cpp
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin >> n;
+
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=n;j*=2)
+        {
+            cout << "Hello" << endl;
+        }
+    }
+
+    return 0;
+}
+Quadratic_complexity_O_NxN.cpp
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin >> n;
+
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            cout << "Hello" << endl;
+        }
+    }
+    return 0;
+}
+binary_search.cpp
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,q;
+    cin >> n >> q;
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        cin >> a[i];
+    }
+    for(int i=0;i<q;i++)
+    {
+        int x;
+        cin >> x;
+        int flag = 0;
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]==x)
+            {
+                flag = 1;
+            }
+        }
+        if(flag == 1)
+        {
+            cout << "found" << endl;
+        }
+        else
+        {
+            cout << "not found" << endl;
+        }
+    }
+    return 0;
+}
+logarithmic_complexity_O_logN.cpp
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin >> n;
+
+    for(int i=n;i>=1;i/=3)
+    {
+        cout << i << endl;
+    }
+    return 0;
+}
+space_complexity.cpp
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin >> n;
+    int a[n][n];
+    for(int i=0;i<n;i++)
+    {
+        cin >> a[i][i];
+    }
+    
+    return 0;
+}
+sqrt_complexity_O_sqrtN.cpp
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin >> n;
+
+    for(int i=1;i*i<=n; i++) 
+    {
+        if(n%i==0)
+        {
+            cout << i << " " << n/i << " ";
+        }
+    }
+    return 0;
+}
