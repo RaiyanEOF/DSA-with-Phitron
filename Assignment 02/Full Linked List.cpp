@@ -91,6 +91,16 @@ void delete_at_any_pos(Node* &head, Node* &tail, int index) {
     temp->next = temp->next->next;
     delete deleteNode;
 }
+void reverse_linked_list(Node*& head, Node*& tail, Node* temp) {
+    if (temp->next == NULL){
+        head = temp;
+        return;
+    }
+    reverse_linked_list(head, tail, temp->next);
+    temp->next->next = temp;
+    temp->next = NULL;
+    tail = temp;
+}
 void print_linked_list(Node* head) {
     Node* temp = head;
     while(temp != NULL) {
@@ -103,7 +113,6 @@ void print_linked_list(Node* head) {
 int main(){
     Node* head = NULL;
     Node* tail = NULL;
-    int choice;
     cout << "Menu:\n";
     cout << "1. Insert at head\n";
     cout << "2. Insert at tail\n";
@@ -111,9 +120,13 @@ int main(){
     cout << "4. Delete at head\n";
     cout << "5. Delete at tail\n";
     cout << "6. Delete at any position\n";
-    cout << "7. Print list\n";
+    cout << "7. Reverse list\n";
+    cout << "8. Print linked list\n";
     cout << "0. Exit\n";
-    while(true){
+    int t;
+    cin >> t;
+    while(t--){
+        int choice;
         cout << "Enter choice: ";
         cin >> choice;
         if(choice == 0) break;
@@ -148,6 +161,9 @@ int main(){
             delete_at_any_pos(head, tail, index);
         } 
         else if(choice == 7){
+            reverse_linked_list(head,tail,head);
+        }
+        else if(choice == 8){
             print_linked_list(head);
         }
     }
